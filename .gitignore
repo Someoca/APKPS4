@@ -1,0 +1,10 @@
+﻿build/
+out/
+*.o
+*.elf
+*.oelf
+*.pkg
+*.gp4
+*.log
+.vscode/
+.idea/
