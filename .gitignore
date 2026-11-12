@@ -8,3 +8,6 @@ out/
 *.log
 .vscode/
 .idea/
+# Dependencias externas
+third_party/
+# Artefatos de compilacao
