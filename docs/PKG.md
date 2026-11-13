@@ -14,8 +14,8 @@ powershell -ExecutionPolicy Bypass -File scripts\build-pkg.ps1
 
 ## Estrutura
 - `src\ps4\main_ps4.cpp`: entrada do eboot (usa `gnm_core` e o `FrameLimiter` de 60 FPS).
-- `scripts\build-pkg.ps1`: compila (`-D_POSIX_C_SOURCE` e necessario para o libc++ do OpenOrbis), linka, gera `eboot.bin`, `param.sfo`, `.gp4` e o PKG. `right.sprx` e `sce_module` vem do exemplo hello_world do toolchain.
+- `scripts\build-pkg.ps1`: compila (`-D_GNU_SOURCE` e necessario para o libc++ do OpenOrbis), linka, gera `eboot.bin`, `param.sfo`, `.gp4` e o PKG. `right.sprx` e `sce_module` vem do exemplo hello_world do toolchain.
 
 ## Estado
 - O PKG e gerado com sucesso, mas **nao foi testado em um PS4** (requer console com homebrew).
-- A lista de jogos e a melhoria de imagem nos jogos ainda nao estao integradas ao eboot.
+- O eboot lista os jogos de `/user/app` (via dirent) e roda o pipeline de demonstracao; a melhoria de imagem real dentro dos jogos nao esta implementada (exige captura de frames).

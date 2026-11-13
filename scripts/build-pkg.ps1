@@ -28,11 +28,11 @@ $Stage = Join-Path $Out "stage"
 if (Test-Path $Out) { Remove-Item -Recurse -Force $Out }
 New-Item -ItemType Directory -Force -Path $Out, "$Stage\sce_sys\about", "$Stage\sce_module" | Out-Null
 
-$Sources = "src/core/image.cpp", "src/graphics/pipeline.cpp", "src/hardware/profile.cpp", "src/ps4/main_ps4.cpp"
+$Sources = "src/core/image.cpp", "src/graphics/pipeline.cpp", "src/hardware/profile.cpp", "src/library/library.cpp", "src/ps4/main_ps4.cpp"
 $Objs = @()
 foreach ($s in $Sources) {
     $o = Join-Path $Out (([IO.Path]::GetFileNameWithoutExtension($s)) + ".o")
-    & clang++ --target=x86_64-pc-freebsd12-elf -std=c++17 -D_POSIX_C_SOURCE=200809L -O2 -fPIC -funwind-tables -c `
+    & clang++ --target=x86_64-pc-freebsd12-elf -std=c++17 -D_GNU_SOURCE -O2 -fPIC -funwind-tables -c `
         -isysroot $Tc -isystem "$Tc\include" -isystem "$Tc\include\c++\v1" -Iinclude $s -o $o
     if ($LASTEXITCODE -ne 0) { throw "Falha ao compilar $s" }
     $Objs += $o
