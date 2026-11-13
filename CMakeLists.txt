@@ -8,8 +8,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(gnm_core
     src/core/image.cpp
     src/graphics/pipeline.cpp
+    src/graphics/render.cpp
     src/hardware/profile.cpp
     src/library/library.cpp
+    src/library/game_profile.cpp
 )
 target_include_directories(gnm_core PUBLIC include)
 
