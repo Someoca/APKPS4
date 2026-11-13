@@ -9,6 +9,7 @@ add_library(gnm_core
     src/core/image.cpp
     src/graphics/pipeline.cpp
     src/hardware/profile.cpp
+    src/library/library.cpp
 )
 target_include_directories(gnm_core PUBLIC include)
 
