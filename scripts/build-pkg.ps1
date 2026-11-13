@@ -39,7 +39,7 @@ foreach ($s in $Sources) {
 }
 
 $Elf = Join-Path $Out "gnm_scale.elf"
-& ld.lld -m elf_x86_64 -pie --script "$Tc\link.x" --eh-frame-hdr "-L$Tc\lib" @Objs -lc -lkernel -lc++ "$Tc\lib\crt1.o" -o $Elf
+& ld.lld -m elf_x86_64 -pie --script "$Tc\link.x" --eh-frame-hdr "-L$Tc\lib" @Objs -lc -lkernel -lc++ -lSceVideoOut "$Tc\lib\crt1.o" -o $Elf
 if ($LASTEXITCODE -ne 0) { throw "Falha ao linkar." }
 
 & "$Bin\create-fself.exe" "-in=$Elf" "-out=$Out\gnm_scale.oelf" --eboot "$Stage\eboot.bin" --paid 0x3800000000000011

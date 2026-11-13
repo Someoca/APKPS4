@@ -21,6 +21,9 @@
 ```
 (requer plugins habilitados nas opções do GoldHEN).
 
+## Tela preta ao abrir o app
+Causa: versoes anteriores do eboot nao inicializavam o VideoOut (nenhum frame era apresentado). Corrigido: o app abre o VideoOut, mostra um fundo azul imediatamente, uma barra por jogo encontrado (vermelha se nenhum), a previa do pipeline e um bloco branco em movimento (prova de que o loop roda). Se ainda ficar preto, reinstale o PKG novo (versao >= 01.00 desta correcao) e envie o klog.
+
 ## O que verificar e logs
 - Abrir o app: deve exibir a lista de jogos e rodar o demo. Anote o que aparecer.
 - Com o plugin: o klog (GoldHEN, porta 3232 — `nc IP_DO_PS4 3232`) deve mostrar `[gnm] titleid=...` e `[gnm] fps do perfil=...`.
