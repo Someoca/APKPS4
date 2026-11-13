@@ -27,7 +27,7 @@ inline uint32_t argb(uint8_t r, uint8_t g, uint8_t b) {
 
 struct Display {
     int video = -1;
-    OrbisKernelEqueue flipQueue = nullptr;
+    OrbisKernelEqueue flipQueue = 0;
     uint32_t* buffers[kBufferCount] = {};
     int active = 0;
 
