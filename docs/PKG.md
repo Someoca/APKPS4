@@ -19,3 +19,12 @@ powershell -ExecutionPolicy Bypass -File scripts\build-pkg.ps1
 ## Estado
 - O PKG e gerado com sucesso, mas **nao foi testado em um PS4** (requer console com homebrew).
 - O eboot lista os jogos de `/user/app` (via dirent) e roda o pipeline de demonstracao; a melhoria de imagem real dentro dos jogos nao esta implementada (exige captura de frames).
+
+## Publicar release
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\publish-release.ps1 -Tag v0.1.0
+```
+Gera o PKG e o anexa a uma GitHub Release (via `gh`). O `.pkg` nao e versionado no git.
+
+## Limitacoes
+- Melhoria de imagem e 60 FPS dentro de jogos de terceiros exigem captura/injecao de frames (runtime), fora do escopo atual: hoje o projeto fornece o nucleo de processamento, o limitador de frames e a listagem de jogos.
