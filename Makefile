@@ -1,6 +1,6 @@
 ﻿CXX ?= clang++
 CXXFLAGS ?= -std=c++17 -O2 -Wall -Wextra -Iinclude
-CORE = src/core/image.cpp src/graphics/pipeline.cpp src/hardware/profile.cpp src/library/library.cpp
+CORE = src/core/image.cpp src/graphics/pipeline.cpp src/graphics/render.cpp src/hardware/profile.cpp src/library/library.cpp src/library/game_profile.cpp
 
 all: build/gnm_scale
 

@@ -11,8 +11,10 @@ New-Item -ItemType Directory -Force -Path "build" | Out-Null
 $Sources = @(
     "src/core/image.cpp",
     "src/graphics/pipeline.cpp",
+    "src/graphics/render.cpp",
     "src/hardware/profile.cpp",
-    "src/library/library.cpp"
+    "src/library/library.cpp",
+    "src/library/game_profile.cpp"
 )
 
 $Common = @(

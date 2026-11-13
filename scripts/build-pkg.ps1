@@ -28,7 +28,7 @@ $Stage = Join-Path $Out "stage"
 if (Test-Path $Out) { Remove-Item -Recurse -Force $Out }
 New-Item -ItemType Directory -Force -Path $Out, "$Stage\sce_sys\about", "$Stage\sce_module" | Out-Null
 
-$Sources = "src/core/image.cpp", "src/graphics/pipeline.cpp", "src/hardware/profile.cpp", "src/library/library.cpp", "src/ps4/main_ps4.cpp"
+$Sources = "src/core/image.cpp", "src/graphics/pipeline.cpp", "src/graphics/render.cpp", "src/hardware/profile.cpp", "src/library/library.cpp", "src/library/game_profile.cpp", "src/ps4/main_ps4.cpp"
 $Objs = @()
 foreach ($s in $Sources) {
     $o = Join-Path $Out (([IO.Path]::GetFileNameWithoutExtension($s)) + ".o")
