@@ -1,0 +1,21 @@
+# Empacotar o PKG para PS4
+
+Gera `build\pkg\IV0000-GNMS00001_00-GNMSCALEPS400001.pkg` com o OpenOrbis PS4 Toolchain.
+
+## Requisitos
+- [OpenOrbis PS4 Toolchain](https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain). O script usa `OO_PS4_TOOLCHAIN` ou, se ausente, `%USERPROFILE%\OpenOrbis\PS4Toolchain`.
+- `clang++` e `ld.lld` no PATH (LLVM) e .NET para o `PkgTool.Core`.
+- Opcional: `pkg\sce_sys\icon0.png` (512x512). Sem ele, usa o icone do exemplo hello_world.
+
+## Uso
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build-pkg.ps1
+```
+
+## Estrutura
+- `src\ps4\main_ps4.cpp`: entrada do eboot (usa `gnm_core` e o `FrameLimiter` de 60 FPS).
+- `scripts\build-pkg.ps1`: compila (`-D_POSIX_C_SOURCE` e necessario para o libc++ do OpenOrbis), linka, gera `eboot.bin`, `param.sfo`, `.gp4` e o PKG. `right.sprx` e `sce_module` vem do exemplo hello_world do toolchain.
+
+## Estado
+- O PKG e gerado com sucesso, mas **nao foi testado em um PS4** (requer console com homebrew).
+- A lista de jogos e a melhoria de imagem nos jogos ainda nao estao integradas ao eboot.

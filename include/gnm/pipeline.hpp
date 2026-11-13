@@ -8,6 +8,8 @@ struct PipelineConfig {
     uint32_t outputHeight = 0;
     float sharpenStrength = 0.0f;
     float temporalWeight = 0.0f;
+    uint32_t targetFps = 60;
+    float gameSpeed = 1.0f; // 1.0 = velocidade original do jogo
 };
 
 Image upscaleBilinear(const Image& input, uint32_t width, uint32_t height);
